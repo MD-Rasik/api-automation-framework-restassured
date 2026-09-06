@@ -1,0 +1,8 @@
+/target/
+/test-output/
+/reports/
+.classpath
+.project
+.settings/
+.vscode/
+*.log
