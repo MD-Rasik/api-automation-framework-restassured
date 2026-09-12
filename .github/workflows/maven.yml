@@ -26,6 +26,14 @@ jobs:
       - name: Grant Execute Permissions for Maven Wrapper (if present)
         run: chmod +x mvnw || true
 
+      - name: Start API Server in Background
+        run: |
+          mvn clean package -DskipTests
+          java -jar target/api-automation-framework-1.0.0.jar &
+
+      - name: Wait for API to be ready
+        run: sleep 10
+
       - name: Run TestNG Suite with Maven
         run: mvn clean test
 
